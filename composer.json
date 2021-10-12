@@ -1,0 +1,26 @@
+{
+  "name": "dravencms/base-form",
+  "type": "dravencms-package",
+  "description": "DravenCMS Base Form",
+  "keywords": [
+    "dravencms",
+    "base-form"
+  ],
+  "license": [
+    "LGPL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Adam Schubert"
+    }
+  ],
+  "require": {
+    "dravencms/application": "^0.0.2",
+    "nette/forms": "^3.0.9"
+  },
+  "autoload": {
+    "psr-0": {
+      "Dravencms\\": "src/"
+    }
+  }
+}
