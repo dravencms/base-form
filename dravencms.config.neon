@@ -1,2 +1,2 @@
 extensions:
-    baseForm: Dravencms\BaseGrid\DI\BaseFormExtension
+    baseForm: Dravencms\BaseForm\DI\BaseFormExtension

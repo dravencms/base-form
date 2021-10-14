@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Dravencms\BaseGrid\DI;
+namespace Dravencms\BaseForm\DI;
 
 use Nette\DI\CompilerExtension;
 
