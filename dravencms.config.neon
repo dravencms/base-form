@@ -1,2 +1,2 @@
-services:
-    - Dravencms\Components\BaseForm\BaseFormFactory
+extensions:
+    baseForm: Dravencms\BaseGrid\DI\BaseFormExtension
