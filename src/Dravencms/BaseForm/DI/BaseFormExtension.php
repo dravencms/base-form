@@ -12,16 +12,16 @@ class BaseFormExtension extends CompilerExtension
 {
     public function loadConfiguration(): void
     {
-        $this->loadComponents();
+        $this->loadModels();
     }
 
-    protected function loadComponents(): void
+    protected function loadModels(): void
     {
         $builder = $this->getContainerBuilder();
-        foreach ($this->loadFromFile(__DIR__ . '/components.neon') as $i => $command) {
-            $cli = $builder->addFactoryDefinition($this->prefix('components.' . $i));
+        foreach ($this->loadFromFile(__DIR__ . '/models.neon') as $i => $command) {
+            $cli = $builder->addDefinition($this->prefix('models.' . $i));
             if (is_string($command)) {
-                $cli->setImplement($command);
+                $cli->setFactory($command);
             } else {
                 throw new \InvalidArgumentException;
             }
