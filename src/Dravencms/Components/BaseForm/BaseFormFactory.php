@@ -3,6 +3,7 @@
 namespace Dravencms\Components\BaseForm;
 
 use Dravencms\Components\BaseControl\BaseControl;
+use Nette\Localization\Translator;
 use Nette\Forms\FormRenderer;
 
 
@@ -14,14 +15,17 @@ class BaseFormFactory extends BaseControl
     /** @var FormRenderer|null */
     private $renderer;
 
+    /** @var Translator */
+    private $translator;
 
     /**
      * BaseForm constructor.
      * @param FormRenderer|null $renderer
      */
-    public function __construct(FormRenderer $renderer = null)
+    public function __construct(Translator $translator, FormRenderer $renderer = null)
     {
         $this->renderer = $renderer;
+        $this->translator = $translator;
     }
 
 
@@ -31,6 +35,7 @@ class BaseFormFactory extends BaseControl
     public function create(): Form
     {
         $form = new Form();
+        $form->setTranslator($this->translator);
         $form->setRenderer($this->renderer);
         $form->addProtection('Please, send form again.');
 
