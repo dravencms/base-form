@@ -36,7 +36,11 @@ class BaseFormFactory extends BaseControl
     {
         $form = new Form();
         $form->setTranslator($this->translator);
-        $form->setRenderer($this->renderer);
+        if ($this->renderer) {
+            // renderer can be null but setRenderer only accepts FormRenderer
+            $form->setRenderer($this->renderer);
+        }
+        
         $form->addProtection('Please, send form again.');
 
         return $form;
