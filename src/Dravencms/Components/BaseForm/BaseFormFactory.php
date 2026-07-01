@@ -22,7 +22,7 @@ class BaseFormFactory extends BaseControl
      * BaseForm constructor.
      * @param FormRenderer|null $renderer
      */
-    public function __construct(Translator $translator, FormRenderer $renderer = null)
+    public function __construct(Translator $translator, ?FormRenderer $renderer = null)
     {
         $this->renderer = $renderer;
         $this->translator = $translator;
