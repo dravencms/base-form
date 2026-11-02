@@ -1,0 +1,2 @@
+validation:
+    sessionExpired: 'Platnost formuláře vypršela. Odešlete jej prosím znovu.'

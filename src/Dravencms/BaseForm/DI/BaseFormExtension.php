@@ -12,6 +12,12 @@ class BaseFormExtension extends CompilerExtension
 {
     public function loadConfiguration(): void
     {
+        // Applications may use a different translator or provide catalogs themselves.
+        foreach ($this->compiler->getExtensions(\Contributte\Translation\DI\TranslationExtension::class) as $extension) {
+            $config = $extension->getConfig();
+            $config['dirs'][] = __DIR__ . '/../lang';
+            $extension->setConfig($config);
+        }
         $this->loadModels();
     }
 

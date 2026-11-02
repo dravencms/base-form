@@ -41,7 +41,7 @@ class BaseFormFactory extends BaseControl
             $form->setRenderer($this->renderer);
         }
         
-        $form->addProtection('Please, send form again.');
+        $form->addProtection('baseForm.validation.sessionExpired');
 
         return $form;
     }

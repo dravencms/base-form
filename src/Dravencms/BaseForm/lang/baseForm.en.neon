@@ -1,0 +1,2 @@
+validation:
+    sessionExpired: 'The form has expired. Please submit it again.'
