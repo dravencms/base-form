@@ -21,6 +21,15 @@ class BaseFormExtension extends CompilerExtension
         $this->loadModels();
     }
 
+    public function beforeCompile(): void
+    {
+        $builder = $this->getContainerBuilder();
+        $application = $builder->getByType(\Nette\Application\Application::class);
+        if ($application === null) { return; }
+        $builder->addDefinition($this->prefix('formSession'))->setFactory(\Dravencms\BaseForm\FormSession::class);
+        $builder->getDefinition($application)->addSetup('$onResponse[]', [[$this->prefix('@formSession'), 'prepare']]);
+    }
+
     protected function loadModels(): void
     {
         $builder = $this->getContainerBuilder();
